@@ -1010,7 +1010,7 @@ body,button {
 	background-color:#febebe
 }
 .page-54 {
-	background:#d3d2d0 url(img/319280_bg.jpg) repeat
+	background:#d3d2d0 url(img/iali92.jpg) repeat
 }
 .page-54 .center-img {
 	background-image:url(img/319280.jpg);
@@ -1018,7 +1018,8 @@ body,button {
 }
 .page-54 h3 {
 	line-height:1rem;
-	padding-top:0.5em
+	font-size:4em;
+	padding-top:5em
 }
 .page-55 {
 	background-color:#fff
@@ -1165,3 +1166,4 @@ body,button {
 	box-shadow:none;
 }
 .mPower{position: fixed;bottom: 9rem;right: 6.2rem;z-index: 999;}#on, #off{width: 16px;height: 16px;display: inline-block;margin-bottom: -3px;filter: alpha(opacity=0.8);opacity: 0.8;cursor: pointer;}#on:hover, #off:hover{filter: alpha(opacity=4);opacity: 1}#on{background: url(img/music.png) left center no-repeat;}#off{background: url(img/mute.png) left center no-repeat;display: none;}
+.ok{position: fixed;bottom: 0.5rem;right: 0.5rem;z-index: 999;}

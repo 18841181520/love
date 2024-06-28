@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱情长跑 - 姚亚峰和徐慧敏</title>
+    <link rel="stylesheet" href="all.min.css" >
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('img/iali92.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #particles-js, #fireworks-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .timer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            animation: fadeIn 2s ease-in-out;
+            z-index: 1;
+        }
+
+        .timer h1 {
+            font-size: 3em;
+            margin: 0 0 20px;
+            color: #ff00c3be;
+            animation: textGlow 1.5s infinite;
+        }
+
+        .time {
+            font-size: 2em;
+            margin: 20px 0;
+            animation: textGlow 1.5s infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px #ff8c00, 0 0 60px #ff8c00, 0 0 80px #ff8c00, 0 0 100px #ff8c00; }
+            100% { text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px #ffa500, 0 0 60px #ffa500, 0 0 80px #ffa500, 0 0 100px #ffa500; }
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: 10%;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            width: 50px;
+            height: 70px;
+            animation: balloonFloat 10s ease-in infinite;
+        }
+
+        .balloon:after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 2px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.7);
+            transform: translateX(-50%);
+        }
+
+        .balloon.red { left: 20%; background-color: red; animation-delay: 0s; }
+        .balloon.blue { left: 30%; background-color: blue; animation-delay: 2s; }
+        .balloon.green { left: 40%; background-color: green; animation-delay: 4s; }
+        .balloon.yellow { left: 50%; background-color: yellow; animation-delay: 6s; }
+        .balloon.pink { left: 60%; background-color: pink; animation-delay: 8s; }
+        .balloon.purple { left: 70%; background-color: purple; animation-delay: 10s; }
+
+        @keyframes balloonFloat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-200px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="fireworks-container"></div>
+    <div class="timer">
+        <h1>姚亚峰 和 徐慧敏</h1>
+        <h1>相爱啦</h1>
+        <div class="time" id="time">加载中...</div>
+    </div>
+
+    <!-- 气球 -->
+    <div class="balloon red"></div>
+    <div class="balloon blue"></div>
+    <div class="balloon green"></div>
+    <div class="balloon yellow"></div>
+    <div class="balloon pink"></div>
+    <div class="balloon purple"></div>
+
+    <!-- 引入 particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
+    <!-- 引入 fireworks.js -->
+    <script src="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js"></script>
+    <script>
+        const container = document.getElementById('fireworks-container');
+        const fireworks = new Fireworks.default(container)
+            fireworks.start()
+    </script>
+
+    <!-- 引入 moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <!-- 引入 moment-duration-format 插件 -->
+    <script src="https://cdn.jsdelivr.net/npm/moment-duration-format@2.3.2/lib/moment-duration-format.js"></script>
+
+    <script>
+    // 设置起始时间
+    const startTime = moment();
+    alert(`我们于${startTime.format("YYYY-MM-DD HH:mm:ss")}相爱啦！！！`)
+
+    function updateTimer() {
+        const now = moment();
+        const duration = moment.duration(now.diff(startTime));
+
+        // 计算并格式化时间
+        const years = duration.years();
+        const months = duration.months();
+        const days = duration.days();
+        const hours = duration.hours();
+        const minutes = duration.minutes();
+        const seconds = duration.seconds();
+
+        // 显示时间
+        document.getElementById('time').innerText = `${years}年 ${months}月 ${days}日 ${hours}时 ${minutes}分 ${seconds}秒`;
+    }
+
+    // 初始调用
+    updateTimer();
+    // 每秒更新一次
+    setInterval(updateTimer, 1000);
+</script>
+<audio id="bgmMusic" src="successbgm.mp3" autoplay="autoplay" loop preload="auto" type="audio/mp3"></audio>
+<div style="position: fixed;bottom: 0.5rem;right: 0.5rem;z-index: 999;">
+    <a href="index.htm" class="button">back</a>
+</div>
+</body>
+</html>
