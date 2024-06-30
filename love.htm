@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
             background: url('img/iali92.jpg') no-repeat center center fixed;
@@ -21,7 +23,8 @@
             position: relative;
         }
 
-        #particles-js, #fireworks-container {
+        #particles-js,
+        #fireworks-container {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -34,7 +37,7 @@
             background: rgba(0, 0, 0, 0.5);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             animation: fadeIn 2s ease-in-out;
             z-index: 1;
         }
@@ -53,13 +56,23 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes textGlow {
-            0% { text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px #ff8c00, 0 0 60px #ff8c00, 0 0 80px #ff8c00, 0 0 100px #ff8c00; }
-            100% { text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px #ffa500, 0 0 60px #ffa500, 0 0 80px #ffa500, 0 0 100px #ffa500; }
+            0% {
+                text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px #ff8c00, 0 0 60px #ff8c00, 0 0 80px #ff8c00, 0 0 100px #ff8c00;
+            }
+
+            100% {
+                text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px #ffa500, 0 0 60px #ffa500, 0 0 80px #ffa500, 0 0 100px #ffa500;
+            }
         }
 
         .balloon {
@@ -83,20 +96,64 @@
             transform: translateX(-50%);
         }
 
-        .balloon.red { left: 20%; background-color: red; animation-delay: 0s; }
-        .balloon.blue { left: 30%; background-color: blue; animation-delay: 2s; }
-        .balloon.green { left: 40%; background-color: green; animation-delay: 4s; }
-        .balloon.yellow { left: 50%; background-color: yellow; animation-delay: 6s; }
-        .balloon.pink { left: 60%; background-color: pink; animation-delay: 8s; }
-        .balloon.purple { left: 70%; background-color: purple; animation-delay: 10s; }
+        .balloon.red {
+            left: 20%;
+            background-color: red;
+            animation-delay: 0s;
+        }
+
+        .balloon.blue {
+            left: 30%;
+            background-color: blue;
+            animation-delay: 2s;
+        }
+
+        .balloon.green {
+            left: 40%;
+            background-color: green;
+            animation-delay: 4s;
+        }
+
+        .balloon.yellow {
+            left: 50%;
+            background-color: yellow;
+            animation-delay: 6s;
+        }
+
+        .balloon.pink {
+            left: 60%;
+            background-color: pink;
+            animation-delay: 8s;
+        }
+
+        .balloon.purple {
+            left: 70%;
+            background-color: purple;
+            animation-delay: 10s;
+        }
 
         @keyframes balloonFloat {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-200px); }
-            100% { transform: translateY(0); }
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-200px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
         }
+
+        .audio-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
+
 <body>
     <div id="particles-js"></div>
     <div id="fireworks-container"></div>
@@ -234,7 +291,7 @@
     <script>
         const container = document.getElementById('fireworks-container');
         const fireworks = new Fireworks.default(container)
-            fireworks.start()
+        fireworks.start()
     </script>
 
     <!-- 引入 moment.js -->
@@ -243,34 +300,38 @@
     <script src="moment-duration-format.js"></script>
 
     <script>
-    // 设置起始时间
-    const startTime = moment('2024-06-29 20:40:09');
-    // alert(`我们于${startTime.format("YYYY-MM-DD HH:mm:ss")}相爱啦！！！`)
+        // 设置起始时间
+        const startTime = moment('2024-06-29 20:40:09');
+        // alert(`我们于${startTime.format("YYYY-MM-DD HH:mm:ss")}相爱啦！！！`)
 
-    function updateTimer() {
-        const now = moment();
-        const duration = moment.duration(now.diff(startTime));
+        function updateTimer() {
+            const now = moment();
+            const duration = moment.duration(now.diff(startTime));
 
-        // 计算并格式化时间
-        const years = duration.years();
-        const months = duration.months();
-        const days = duration.days();
-        const hours = duration.hours();
-        const minutes = duration.minutes();
-        const seconds = duration.seconds();
+            // 计算并格式化时间
+            const years = duration.years();
+            const months = duration.months();
+            const days = duration.days();
+            const hours = duration.hours();
+            const minutes = duration.minutes();
+            const seconds = duration.seconds();
 
-        // 显示时间
-        document.getElementById('time').innerText = `${years}年 ${months}月 ${days}日 ${hours}时 ${minutes}分 ${seconds}秒`;
-    }
-
-    // 初始调用
-    updateTimer();
-    // 每秒更新一次
-    setInterval(updateTimer, 1000);
-</script>
-<audio id="bgmMusic" src="successbgm.mp3" autoplay="autoplay" loop preload="auto" type="audio/mp3"></audio>
-<div style="position: fixed;bottom: 0.5rem;right: 0.5rem;z-index: 999;">
-    <a href="index.htm" class="button">我们的故事</a>
-</div>
+            // 显示时间
+            document.getElementById('time').innerText = `${years}年 ${months}月 ${days}日 ${hours}时 ${minutes}分 ${seconds}秒`;
+        }
+        // 初始调用å
+        updateTimer();
+        // 每秒更新一次
+        setInterval(updateTimer, 1000);</script>
+    <div style="position: fixed;bottom: 0.5rem;left: 0.5rem;z-index: 999;">
+        <audio controls autoplay loop style=" opacity: 0.5;transform: scale(0.8);">
+            <source src="successbgm.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <div style="position: fixed;bottom: 0.5rem;right: 0.5rem;z-index: 999;">
+        <a href="index.htm" class="button">我们的故事</a>
+    </div>
 </body>
+
 </html>
